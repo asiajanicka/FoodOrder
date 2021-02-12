@@ -1,0 +1,10 @@
+Coffee,DRINK,HOT,false,8.00,10
+Coffee Latte,DRINK, HOT,false,14.00,40
+TEA,DRINK,HOT,false,5,0
+Orange juice,DRINK, COLD, false, 10.00, 50
+Coca Cola,DRINK, COLD,false,10.00,55
+Fanta,DRINK,COLD,false,10.00,56
+Beer,DRINK, COLD,true,10.50,58
+Red wine,DRINK, COLD,true,15.00,40
+White wine,DRINK,COLD, true, 15.00,40
+Whisky,DRINK, COLD, true, 20.00,50

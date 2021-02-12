@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.stage.*?>
+
+<Stage minHeight="800.0" minWidth="480.0" title="Food Order" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.PrimaryController">
+<scene>
+   <Scene height="480" width="640">
+      <VBox alignment="CENTER" fillWidth="false" minWidth="-Infinity" prefHeight="200.0" spacing="20.0" xmlns="http://javafx.com/javafx/11.0.1">
+         <children>
+            <Label fx:id="helloLabel" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" text="Hello World" />
+            <Button fx:id="clickMeButton" onAction="#clickMeButtonAction" text="Click Me" />
+               <Label text="Label" />
+         </children>
+         <padding>
+            <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+         </padding>
+      </VBox>
+   </Scene>
+</scene>
+</Stage>
