@@ -1,4 +1,4 @@
-package org.example.model;
+package org.example.model.menu;
 
 import java.util.ArrayList;
 import java.util.Objects;
@@ -17,8 +17,7 @@ public class Meal extends MenuItem{
 
 
     public String getIngredients() {
-        String temp = ingredients.stream().map(b->b.toString()).collect(Collectors.joining(", "));
-        return temp.toString();
+        return ingredients.stream().map(b->b.toString()).collect(Collectors.joining(", "));
     }
 
     @Override
@@ -35,12 +34,20 @@ public class Meal extends MenuItem{
     }
 
     @Override
+//    public String toString() {
+//        return  super.toString() +
+//                ", ingredients= " + getIngredients() ;
+//    }
     public String toString() {
-        return  super.toString() +
-                ", ingredients= " + getIngredients() ;
+        return  super.getName() + "     "+ super.getPrice();
     }
 
-    public static class MealBuilder {
+    public String fullDescription(){
+        return super.getName() + "\n" + "price: " + super.getPrice() + " kcal: " + super.getKcal()+"\n"+ this.ingredients;
+    }
+
+
+        public static class MealBuilder {
 
         private String name;
         private double price;

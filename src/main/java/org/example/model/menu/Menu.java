@@ -1,11 +1,8 @@
-package org.example.model;
+package org.example.model.menu;
 
 import java.io.BufferedReader;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
-import java.lang.reflect.Array;
-import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.stream.Collectors;
 
@@ -57,8 +54,7 @@ public class Menu {
     }
 
     public ArrayList<MenuItem> filterBasedOnIngredient(Ingredient ing){
-        ArrayList<String> names = new ArrayList<>();
-        names = ingList.findMenuItemNames(ing);
+        ArrayList<String> names = ingList.findMenuItemNames(ing);
         ArrayList<MenuItem> menuItemsFiltered = new ArrayList<>();
         for(String str: names){
                     menuItemsFiltered.addAll(menu.stream().filter(e->e.getName().equals(str)).collect(Collectors.toCollection(ArrayList::new)));

@@ -1,4 +1,4 @@
-package org.example.model;
+package org.example.model.menu;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -19,7 +19,7 @@ public class IngredientList {
             if(!list.get(ing).contains(name))
                 list.get(ing).add(name);
         }else {
-            list.putIfAbsent(ing, new ArrayList<String>());
+            list.putIfAbsent(ing, new ArrayList<>());
             list.get(ing).add(name);
         }
 

@@ -1,4 +1,4 @@
-package org.example.model;
+package org.example.model.menu;
 
 import java.util.Objects;
 
@@ -35,9 +35,12 @@ public class Drink extends MenuItem {
 
     @Override
     public String toString() {
-        return super.toString() +
-                ", hotCold=" + hotCold +
-                ", alcoholic=" + alcoholic;
+        return super.getName()+"        "+super.getPrice();
+    }
+
+    @Override
+    public String fullDescription() {
+        return super.getName() + "\n" + "price: " + super.getPrice() + " kcal: " + super.getKcal();
     }
 
     public static class DrinkBuilder {

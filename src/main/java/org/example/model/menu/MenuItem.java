@@ -1,4 +1,4 @@
-package org.example.model;
+package org.example.model.menu;
 
 public abstract class MenuItem {
 
@@ -13,6 +13,13 @@ public abstract class MenuItem {
         this.kcal = kcal;
         this.category = category;
 
+    }
+
+    public MenuItem(){
+        this.name = "Owsianka";
+        this.category = Category.BREAKFAST;
+        this.price =34.0;
+        this.kcal = 123;
     }
 
     public String getName() {
@@ -30,7 +37,9 @@ public abstract class MenuItem {
     public Category getCategory(){
         return category;
     }
-
+    public  String fullDescription(){
+        return "bla";
+    }
 
 
     @Override

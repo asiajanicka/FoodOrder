@@ -4,21 +4,133 @@
 <?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 <?import javafx.stage.*?>
 
-<Stage minHeight="800.0" minWidth="480.0" title="Food Order" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.PrimaryController">
-<scene>
-   <Scene height="480" width="640">
-      <VBox alignment="CENTER" fillWidth="false" minWidth="-Infinity" prefHeight="200.0" spacing="20.0" xmlns="http://javafx.com/javafx/11.0.1">
-         <children>
-            <Label fx:id="helloLabel" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" text="Hello World" />
-            <Button fx:id="clickMeButton" onAction="#clickMeButtonAction" text="Click Me" />
-               <Label text="Label" />
-         </children>
-         <padding>
-            <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
-         </padding>
-      </VBox>
-   </Scene>
-</scene>
+<Stage minHeight="600.0" minWidth="740.0" title="Food Order" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.PrimaryController">
+    <scene>
+        <Scene>
+            <HBox>
+                <VBox prefHeight="500.0" HBox.hgrow="ALWAYS">
+                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Menu">
+                        <font>
+                            <Font size="24.0" />
+                        </font>
+                        <VBox.margin>
+                            <Insets left="10.0" top="10.0" />
+                        </VBox.margin>
+                    </Text>
+                    <HBox prefHeight="40.0" spacing="10.0">
+                        <Button fx:id="breakfastButton" mnemonicParsing="false" onAction="#clickBreakfastButtonAction" text="Breakfast" />
+                        <Button fx:id="lunchButton" mnemonicParsing="false" onAction="#clickLunchButtonAction" text="Lunch" />
+                        <Button fx:id="supperButton" mnemonicParsing="false" onAction="#clickSupperButtonAction" text="Supper" />
+                        <Button fx:id="drinksButton" mnemonicParsing="false" onAction="#clickBDrinksButtonAction" text="Drinks" />
+                        <padding>
+                            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                        </padding>
+                    </HBox>
+                    <TextField fx:id="filterTextField" onKeyPressed="#clickFilterByIngredient" promptText="Filter by ingredient" HBox.hgrow="ALWAYS">
+                        <VBox.margin>
+                            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                        </VBox.margin>
+                    </TextField>
+                    <Label fx:id="menuMealsLabel" text="Breakfast:">
+                        <padding>
+                            <Insets bottom="5.0" left="10.0" top="15.0" />
+                        </padding>
+                    </Label>
+                    <ListView fx:id="menuViewList" editable="true" minHeight="300.0" onMouseClicked="#displaySelectedMenuItem" prefHeight="300.0" HBox.hgrow="ALWAYS" VBox.vgrow="ALWAYS">
+                        <VBox.margin>
+                            <Insets bottom="10.0" left="10.0" right="10.0" />
+                        </VBox.margin>
+                    </ListView>
+                    <Pane prefHeight="80" style="-fx-background-color: #ffffff" HBox.hgrow="ALWAYS">
+                        <Label fx:id="mealPreviewMenu" text="Meal preview" wrapText="true">
+                            <padding>
+                                <Insets bottom="2.0" left="5.0" right="5.0" top="2.0" />
+                            </padding>
+                        </Label>
+                        <VBox.margin>
+                            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                        </VBox.margin>
+                    </Pane>
+                    <HBox alignment="CENTER_RIGHT" HBox.hgrow="ALWAYS">
+                        <Button fx:id="addMeal" alignment="CENTER_RIGHT" mnemonicParsing="false" onMouseClicked="#addMealItemToOrder" text=" Add meal">
+                            <font>
+                                <Font size="18.0" />
+                            </font>
+                            <HBox.margin>
+                                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                            </HBox.margin>
+                        </Button>
+                    </HBox>
+                </VBox>
+                <VBox prefHeight="500.0" HBox.hgrow="ALWAYS">
+                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Your order">
+                        <VBox.margin>
+                            <Insets left="10.0" top="10.0" />
+                        </VBox.margin>
+                        <font>
+                            <Font size="24.0" />
+                        </font>
+                    </Text>
+                    <Label fx:id="totalCost" text="Total cost: ">
+                        <font>
+                            <Font size="18.0" />
+                        </font>
+                        <VBox.margin>
+                            <Insets left="10.0" top="12.0" />
+                        </VBox.margin>
+                    </Label>
+                    <Label fx:id="totalKcal" text="Total kcal: ">
+                        <font>
+                            <Font size="18.0" />
+                        </font>
+                        <VBox.margin>
+                            <Insets bottom="10.0" left="10.0" top="25.0" />
+                        </VBox.margin>
+                    </Label>
+                    <Label text="Your order:">
+                        <padding>
+                            <Insets bottom="7.0" left="10.0" top="15.0" />
+                        </padding>
+                    </Label>
+                    <ListView fx:id="orderListView" editable="true" minHeight="300.0" onMouseClicked="#displaySelectedOrderItem" prefHeight="300.0" HBox.hgrow="ALWAYS" VBox.vgrow="ALWAYS">
+                        <VBox.margin>
+                            <Insets bottom="10.0" left="10.0" right="10.0" />
+                        </VBox.margin>
+                    </ListView>
+                    <Pane prefHeight="80" style="-fx-background-color: #ffffff" HBox.hgrow="ALWAYS">
+                        <Label fx:id="orderMealPrview" text="Meal preview" wrapText="true">
+                            <padding>
+                                <Insets bottom="2.0" left="5.0" right="5.0" top="2.0" />
+                            </padding>
+                        </Label>
+                        <VBox.margin>
+                            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                        </VBox.margin>
+                    </Pane>
+                    <HBox prefHeight="100.0" prefWidth="200.0">
+                        <Button fx:id="removeMealButton" mnemonicParsing="false" onMouseClicked="#removeMealFromOrder" text="Remove meal">
+                            <font>
+                                <Font size="18.0" />
+                            </font>
+                            <HBox.margin>
+                                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                            </HBox.margin>
+                        </Button>
+                        <Pane prefHeight="55.0" prefWidth="50.0" HBox.hgrow="ALWAYS" />
+                        <Button mnemonicParsing="false" text="Pay">
+                            <font>
+                                <Font name="System Bold" size="18.0" />
+                            </font>
+                            <HBox.margin>
+                                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                            </HBox.margin>
+                        </Button>
+                    </HBox>
+                </VBox>
+            </HBox>
+        </Scene>
+    </scene>
 </Stage>
