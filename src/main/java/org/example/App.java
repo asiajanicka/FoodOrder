@@ -3,12 +3,19 @@ package org.example;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.stage.Stage;
+import org.example.model.jdbc.DB;
 import org.example.model.menu.Category;
 import org.example.model.menu.Ingredient;
 import org.example.model.menu.Menu;
 import org.example.model.menu.MenuItem;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.sql.Connection;
+import java.sql.DriverManager;
+
 import java.io.IOException;
+import java.sql.SQLException;
 
 /**
  * JavaFX App
@@ -22,7 +29,10 @@ public class App extends Application {
         stage.show();
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws SQLException, IOException {
+        DB db = new DB();
+
+
         launch();
     }
 
