@@ -1,5 +1,8 @@
 package org.example.model.menu;
 
+import org.example.model.jdbc.DB;
+
+import javax.xml.transform.Result;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
@@ -13,8 +16,13 @@ public class Menu {
     public Menu() throws IOException {
         this.menu = new ArrayList<>();
         this.ingList = new IngredientList();
-        loadMeals();
+        loadMealsFromJDBC();
+       // loadMeals();
         loadDrinks();
+    }
+
+    public IngredientList getIngList(){
+        return this.ingList;
     }
 
     public void loadMeals() throws IOException {
@@ -34,6 +42,17 @@ public class Menu {
             Meal meal = new Meal.MealBuilder().name(values[0]).category(Category.valueOf(values[1])).price(Double.parseDouble(values[2])).kcal(Integer.parseInt(values[3])).ingredients(ingredinets_arr).build();
             this.menu.add(meal);
         }
+    }
+
+    public void loadMealsFromJDBC(){
+        DB db = DB.getInstance();
+        this.menu.addAll(db.getMeals());
+        db.close();
+
+      //  ResultSet rs = db.getQuery("sql");
+
+
+
     }
 
     public void loadDrinks() throws IOException {

@@ -29,11 +29,12 @@ public class App extends Application {
         stage.show();
     }
 
-    public static void main(String[] args) throws SQLException, IOException {
-        DB db = new DB();
+    public static void main(String[] args)  {
+
+       // db.initialize();
 
 
-        launch();
+       launch();
     }
 
 }
