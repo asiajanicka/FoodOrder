@@ -17,6 +17,20 @@
             </Attribute>
           </value>
         </entry>
+        <entry key="/src/main/java/org/example/model/menu/Ingredient.java">
+          <value>
+            <Attribute>
+              <option name="separator" value=";" />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="/src/main/java/org/example/model/menu/Menu.java">
+          <value>
+            <Attribute>
+              <option name="separator" value=";" />
+            </Attribute>
+          </value>
+        </entry>
         <entry key="/src/main/java/org/example/model/order/Order.java">
           <value>
             <Attribute>

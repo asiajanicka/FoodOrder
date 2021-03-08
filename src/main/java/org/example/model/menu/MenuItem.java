@@ -12,7 +12,6 @@ public abstract class MenuItem {
         this.price = price;
         this.kcal = kcal;
         this.category = category;
-
     }
 
     public MenuItem(){
@@ -37,10 +36,10 @@ public abstract class MenuItem {
     public Category getCategory(){
         return category;
     }
+
     public  String fullDescription(){
         return "bla";
     }
-
 
     @Override
     public String toString() {

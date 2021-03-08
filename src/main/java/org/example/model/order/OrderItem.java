@@ -46,5 +46,4 @@ public class OrderItem {
         return Objects.hash(menuItem);
     }
 
-
 }

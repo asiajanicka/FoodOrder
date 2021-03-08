@@ -8,13 +8,10 @@ public class Meal extends MenuItem{
 
     private ArrayList<Ingredient>ingredients;
 
-
     public Meal(String name,Category category, ArrayList<Ingredient> ingredients, double price, int kcal) {
         super(name, category, price, kcal);
         this.ingredients = ingredients;
     }
-
-
 
     public String getIngredients() {
         return ingredients.stream().map(b->b.toString()).collect(Collectors.joining(", "));
@@ -34,10 +31,6 @@ public class Meal extends MenuItem{
     }
 
     @Override
-//    public String toString() {
-//        return  super.toString() +
-//                ", ingredients= " + getIngredients() ;
-//    }
     public String toString() {
         return  super.getName() + "     "+ super.getPrice();
     }
@@ -45,7 +38,6 @@ public class Meal extends MenuItem{
     public String fullDescription(){
         return super.getName() + "\n" + "price: " + super.getPrice() + " kcal: " + super.getKcal()+"\n"+ this.ingredients;
     }
-
 
         public static class MealBuilder {
 
@@ -56,7 +48,6 @@ public class Meal extends MenuItem{
         private Category category;
 
         public MealBuilder(){
-
         }
 
         public MealBuilder name(String name){

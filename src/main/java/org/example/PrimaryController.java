@@ -11,27 +11,25 @@ package org.example;
  */
 
 
-import java.io.IOException;
-import java.lang.reflect.Array;
-import java.net.URL;
-import java.util.ArrayList;
-import java.util.ResourceBundle;
-
-import javafx.beans.Observable;
 import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.*;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.ListView;
+import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
-import javafx.util.Callback;
+import org.example.model.jdbc.DB;
 import org.example.model.menu.Category;
 import org.example.model.menu.Ingredient;
 import org.example.model.menu.Menu;
 import org.example.model.menu.MenuItem;
 import org.example.model.order.Order;
 import org.example.model.order.OrderItem;
+import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
 
 public class PrimaryController implements Initializable {
     @FXML
@@ -60,8 +58,6 @@ public class PrimaryController implements Initializable {
     private Menu menu;
     private Order order;
 
-    private ObservableList<OrderItem> orderList;
-
 
     public PrimaryController() {
     }
@@ -69,7 +65,11 @@ public class PrimaryController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         try {
+            DB db = DB.getInstance();
             menu = new Menu();
+            menu = db.getMeals();
+            menu.init();
+            db.close();
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -81,20 +81,7 @@ public class PrimaryController implements Initializable {
         }
         order = new Order();
         orderListView.setItems(FXCollections.observableArrayList(order.getOrder()));
-
-       // orderListView.setCellFactory(e->new ListCell<>());
-
-
     }
-//    class OrderItemCell extends  ListCell<OrderItem>{
-//        @Override
-//        protected void updateItem(OrderItem orderItem, boolean b) {
-//            super.updateItem(orderItem, b);
-//            if(b || orderItem == null){
-//                setText(null);
-//            } else setText(orderItem.toString());
-//        }
-//    }
 
     @FXML
     private void clickBreakfastButtonAction() {
@@ -144,13 +131,12 @@ public class PrimaryController implements Initializable {
                 displaySelectedMenuItem();
             }
         }
-
     }
+
     @FXML
     private void displaySelectedMenuItem(){
         MenuItem item =  menuViewList.getSelectionModel().getSelectedItem();
        mealPreviewMenu.setText(item.fullDescription());
-
     }
 
     @FXML
@@ -174,7 +160,6 @@ public class PrimaryController implements Initializable {
 
     @FXML
     private void removeMealFromOrder(){
-       // OrderItem item = (OrderItem) orderListView.getSelectionModel().getSelectedItem();
         OrderItem item = (OrderItem) orderListView.getSelectionModel().selectedItemProperty().get();
         order.removeItem(item);
         orderListView.setItems(FXCollections.observableArrayList(order.getOrder()));
