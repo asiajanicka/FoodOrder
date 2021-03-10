@@ -51,7 +51,7 @@ public class Drink extends MenuItem {
         private double price;
         private int kcal;
 
-        DrinkBuilder() {
+        public DrinkBuilder() {
 
         }
 

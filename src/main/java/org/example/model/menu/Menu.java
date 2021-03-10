@@ -15,10 +15,6 @@ public class Menu {
         this.ing_list = new ArrayList<>();
     }
 
-    public void init() throws IOException {
-        loadDrinks();
-    }
-
     public void addIngredientToIngredientList(Ingredient ing, Meal meal) {
         if (this.ing_list.contains(ing)) {
             for (Ingredient ing_temp : this.ing_list) {

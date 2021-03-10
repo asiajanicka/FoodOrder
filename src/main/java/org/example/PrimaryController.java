@@ -68,7 +68,8 @@ public class PrimaryController implements Initializable {
             DB db = DB.getInstance();
             menu = new Menu();
             menu = db.getMeals();
-            menu.init();
+            menu.getMenu().addAll(db.getDrinks());
+           // menu.init();
             db.close();
         } catch (IOException e) {
             e.printStackTrace();
