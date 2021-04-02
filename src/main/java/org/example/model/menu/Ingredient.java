@@ -6,9 +6,16 @@ import java.util.Objects;
 public class Ingredient {
 
     private final String ingredient;
+    private int id;
     private ArrayList<MenuItem> listOfMeals;
 
     public Ingredient(String ingredient) {
+        this.id =-1;
+        this.ingredient = ingredient;
+        listOfMeals = new ArrayList<>();
+    }
+    public Ingredient(int id, String ingredient) {
+        this.id =id;
         this.ingredient = ingredient;
         listOfMeals = new ArrayList<>();
     }

@@ -7,11 +7,20 @@ import java.util.stream.Collectors;
 public class Meal extends MenuItem{
 
     private ArrayList<Ingredient>ingredients;
+    private int id;
 
     public Meal(String name,Category category, ArrayList<Ingredient> ingredients, double price, int kcal) {
         super(name, category, price, kcal);
         this.ingredients = ingredients;
+        this.id = -1;
     }
+
+    public Meal(int id,String name,Category category, ArrayList<Ingredient> ingredients, double price, int kcal) {
+        super(name, category, price, kcal);
+        this.ingredients = ingredients;
+        this.id = id;
+    }
+
 
     public String getIngredients() {
         return ingredients.stream().map(b->b.toString()).collect(Collectors.joining(", "));
@@ -41,6 +50,7 @@ public class Meal extends MenuItem{
 
         public static class MealBuilder {
 
+        private int id;
         private String name;
         private double price;
         private int kcal;
@@ -48,6 +58,16 @@ public class Meal extends MenuItem{
         private Category category;
 
         public MealBuilder(){
+        }
+
+        public MealBuilder id(int id){
+            this.id = id;
+            return this;
+        }
+
+        public MealBuilder id(){
+            this.id = -1;
+            return this;
         }
 
         public MealBuilder name(String name){
@@ -90,9 +110,11 @@ public class Meal extends MenuItem{
                 throw new IllegalArgumentException("Price must have positive value");
             if(kcal<0)
                 throw new IllegalArgumentException("Kcal must be non-negative");
-            if(ingredients.size()<1)
-                throw new IllegalArgumentException("Meal should have at least one ingredient");
-            return new Meal(this.name,this.category,this.ingredients,this.price,this.kcal);
+//            if(ingredients.size()<1)
+//                throw new IllegalArgumentException("Meal should have at least one ingredient");
+            if(this.id>0)
+            return new Meal(this.id, this.name,this.category,this.ingredients,this.price,this.kcal);
+            else return new Meal(this.name,this.category,this.ingredients,this.price,this.kcal);
         }
     }
 }

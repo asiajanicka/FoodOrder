@@ -17,6 +17,13 @@
             </Attribute>
           </value>
         </entry>
+        <entry key="/src/main/java/org/example/model/jdbc/DB2.java">
+          <value>
+            <Attribute>
+              <option name="separator" value=";" />
+            </Attribute>
+          </value>
+        </entry>
         <entry key="/src/main/java/org/example/model/jdbc/Dao.java">
           <value>
             <Attribute>
@@ -24,7 +31,42 @@
             </Attribute>
           </value>
         </entry>
+        <entry key="/src/main/java/org/example/model/jdbc/DrinkDao.java">
+          <value>
+            <Attribute>
+              <option name="separator" value=";" />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="/src/main/java/org/example/model/jdbc/DrinkDaoImpl.java">
+          <value>
+            <Attribute>
+              <option name="separator" value=";" />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="/src/main/java/org/example/model/jdbc/IngredientDaoImpl.java">
+          <value>
+            <Attribute>
+              <option name="separator" value=";" />
+            </Attribute>
+          </value>
+        </entry>
         <entry key="/src/main/java/org/example/model/jdbc/MealDaoImpl.java">
+          <value>
+            <Attribute>
+              <option name="separator" value=";" />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="/src/main/java/org/example/model/jdbc/MealIngredientDaoImpl.java">
+          <value>
+            <Attribute>
+              <option name="separator" value=";" />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="/src/main/java/org/example/model/jdbc/MenuDaoImpl.java">
           <value>
             <Attribute>
               <option name="separator" value=";" />
@@ -39,6 +81,13 @@
           </value>
         </entry>
         <entry key="/src/main/java/org/example/model/menu/Menu.java">
+          <value>
+            <Attribute>
+              <option name="separator" value=";" />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="/src/main/java/org/example/model/menu/MenuItem.java">
           <value>
             <Attribute>
               <option name="separator" value=";" />

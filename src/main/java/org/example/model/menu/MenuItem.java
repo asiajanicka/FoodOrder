@@ -2,12 +2,21 @@ package org.example.model.menu;
 
 public abstract class MenuItem {
 
+    private int id;
     private String name;
     private double price;
     private int kcal;
     private Category category;
 
+    public MenuItem(int id, String name, Category category, double price, int kcal) {
+        this.id = id;
+        this.name = name;
+        this.price = price;
+        this.kcal = kcal;
+        this.category = category;
+    }
     public MenuItem(String name, Category category, double price, int kcal) {
+        this.id = -1;
         this.name = name;
         this.price = price;
         this.kcal = kcal;
@@ -38,7 +47,7 @@ public abstract class MenuItem {
     }
 
     public  String fullDescription(){
-        return "bla";
+        return null;
     }
 
     @Override

@@ -3,6 +3,7 @@ package org.example.model.menu;
 import java.util.Objects;
 
 public class Drink extends MenuItem {
+    private int id;
     private final TempDrink hotCold;
     private final boolean alcoholic;
 
@@ -10,6 +11,15 @@ public class Drink extends MenuItem {
         super(name, category, price, kcal);
         this.hotCold = hotColdType;
         this.alcoholic = alcoholicType;
+        this.id = -1;
+    }
+
+    public Drink(int id, String name, Category category, TempDrink hotColdType, boolean alcoholicType, double price, int kcal) {
+        super(name, category, price, kcal);
+        this.id = id;
+        this.hotCold = hotColdType;
+        this.alcoholic = alcoholicType;
+        this.id = -1;
     }
 
     public TempDrink isHotCold() {
@@ -44,6 +54,7 @@ public class Drink extends MenuItem {
     }
 
     public static class DrinkBuilder {
+        private int id;
         private String name;
         private Category category;
         private TempDrink hotCold;
@@ -53,6 +64,16 @@ public class Drink extends MenuItem {
 
         public DrinkBuilder() {
 
+        }
+
+        public DrinkBuilder id(){
+            this.id = -1;
+            return this;
+        }
+
+        public DrinkBuilder id(int id){
+            this.id = id;
+            return this;
         }
 
         public DrinkBuilder name(String name) {
@@ -92,7 +113,9 @@ public class Drink extends MenuItem {
                 throw new IllegalArgumentException("Price must have positive value");
             if (kcal < 0)
                 throw new IllegalArgumentException("Kcal must be non-negative");
-            return new Drink(this.name, this.category, this.hotCold, this.alcoholic, this.price, this.kcal);
+            if(this.id>0)
+            return new Drink(this.id, this.name, this.category, this.hotCold, this.alcoholic, this.price, this.kcal);
+            else return new Drink(this.name, this.category, this.hotCold, this.alcoholic, this.price, this.kcal);
         }
     }
 }

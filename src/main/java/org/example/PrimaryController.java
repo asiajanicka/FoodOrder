@@ -20,7 +20,7 @@ import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
-import org.example.model.jdbc.DB;
+import org.example.model.jdbc.*;
 import org.example.model.menu.Category;
 import org.example.model.menu.Ingredient;
 import org.example.model.menu.Menu;
@@ -66,12 +66,18 @@ public class PrimaryController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         try {
             DB db = DB.getInstance();
+            DB2 db2 = DB2.getInstance();
+            MealDao mealDao = new MealDaoImpl();
+            mealDao.addAll();
             menu = new Menu();
-            menu = db.getMeals();
-            menu.getMenu().addAll(db.getDrinks());
+            MenuDao menuDao = new MenuDaoImpl();
+            menu = menuDao.getMenu();
+            DrinkDao drinkDao = new DrinkDaoImpl();
+            drinkDao.addAll();
+            menu.getMenu().addAll(drinkDao.getAll());
            // menu.init();
-            db.close();
-        } catch (IOException e) {
+           db.close();
+        } catch (Exception e) {
             e.printStackTrace();
         }
 
